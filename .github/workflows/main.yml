@@ -1,8 +1,7 @@
 name: Run Test
 
 # 🌟 关键修改 1：把 pull_request 改成 push，意思是只要提交代码就运行
-on: 
-  push:
+on: [push, pull_request]
 
 jobs:
   test:
