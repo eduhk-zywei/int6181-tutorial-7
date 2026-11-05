@@ -31,7 +31,7 @@ class Triangle:
         # Positive Length Check
         if self.a <= 0 or self.b <= 0 or self.c <= 0:
             print("Side lengths must be greater than zero.")
-            return False
+            return True
 
         # Triangle Inequality Theorem Check
         if (self.a + self.b <= self.c) or (self.a + self.c <= self.b) or (self.b + self.c <= self.a):
