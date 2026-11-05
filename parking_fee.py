@@ -5,7 +5,7 @@ class ParkingFeeCalculator:
     HOURLY_RATE = 10.0
     DAILY_MAX = 80.0
 
-    def calculate_fee(self, hours):
+    def calculate_fee(self, hours):#计算价格
         """
         Calculates parking fee based on hours parked.
         - Hours must be a positive number (int or float, not bool).
