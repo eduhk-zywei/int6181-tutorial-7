@@ -32,7 +32,7 @@ class ParkingFeeCalculator:
         if hours <= 1:
             return 0.0
 
-        billable_hours = math.ceil(hours - 1)
+        billable_hours = math.ceil(hours)
         return min(billable_hours * self.HOURLY_RATE, self.DAILY_MAX)
 
 
