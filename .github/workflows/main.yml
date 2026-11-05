@@ -1,0 +1,23 @@
+name: Run Test
+
+# 🌟 关键修改 1：把 pull_request 改成 push，意思是只要提交代码就运行
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: CheckOut Your Code
+      uses: actions/checkout@v4
+
+    - name: Set Up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 🌟 关键修改 2：老师截图里的步骤名叫 "Run teacher tests"
+    - name: Run teacher tests
+      run: |
+        pip install pytest
+        pytest

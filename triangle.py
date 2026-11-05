@@ -16,9 +16,7 @@ class Triangle:
     def is_valid(self) -> bool:
         """
         Validates if the three sides can form a valid triangle.
-        - Inputs must be integers or floats.
-        - Sides must be greater than 0.
-        - Triangle inequality theorem: sum of any two sides > third side.
+        Inputs must be integers or floats.
         """
         # Type Check
         if not (isinstance(self.a, (int, float)) and 
@@ -40,11 +38,10 @@ class Triangle:
 
         return True
 
-    def get_type(self):
-        """Classifies the triangle type."""
+       def get_type(self) -> TriangleType:
         if not self.is_valid():
-            return None
-
+            return False  # <--- 这里改成了 return False
+            
         if self.a == self.b == self.c:
             return TriangleType.EQUILATERAL
         elif self.a == self.b or self.b == self.c or self.a == self.c:
@@ -52,27 +49,10 @@ class Triangle:
         else:
             return TriangleType.SCALENE
 
-    def get_area(self):
-        """Calculates area using Heron's Formula."""
+    def get_area(self) -> float:
         if not self.is_valid():
-            return None
-
-        s = (self.a + self.b + self.c) / 2.0
-        area = math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
-        return round(area, 4)
-
-
-if __name__ == '__main__':
-    try:
-        a = float(input("Enter side A: "))
-        b = float(input("Enter side B: "))
-        c = float(input("Enter side C: "))
-        
-        t = Triangle(a, b, c)
-        if t.is_valid():
-            print(f"Triangle Type: {t.get_type().value}")
-            print(f"Triangle Area: {t.get_area()}")
-        else:
-            print("Invalid triangle parameters.")
-    except ValueError:
-        print("Invalid input! Please enter numeric values!")
+            return False  # <--- 这里也改成了 return False
+            
+        # Heron's formula
+        s = (self.a + self.b + self.c) / 2
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
