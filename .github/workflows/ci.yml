@@ -1,0 +1,24 @@
+name: INT6181 Tutorial 7 CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Run teacher tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: CheckOut Your Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run teacher tests
+        run: python -m unittest discover -v
