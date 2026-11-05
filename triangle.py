@@ -45,9 +45,8 @@ class Triangle:
         if not self.is_valid():
             return None
 
-        # BUG (tutorial): equilateral misclassified as isosceles
         if self.a == self.b == self.c:
-            return TriangleType.ISOSCELES
+            return TriangleType.EQUILATERAL
         elif self.a == self.b or self.b == self.c or self.a == self.c:
             return TriangleType.ISOSCELES
         else:
