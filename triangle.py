@@ -38,9 +38,9 @@ class Triangle:
 
         return True
 
-    def get_type(self) -> TriangleType:
+       def get_type(self) -> TriangleType:
         if not self.is_valid():
-            raise ValueError("Not a valid triangle")
+            return False  # <--- 这里改成了 return False
             
         if self.a == self.b == self.c:
             return TriangleType.EQUILATERAL
@@ -51,7 +51,7 @@ class Triangle:
 
     def get_area(self) -> float:
         if not self.is_valid():
-            raise ValueError("Not a valid triangle")
+            return False  # <--- 这里也改成了 return False
             
         # Heron's formula
         s = (self.a + self.b + self.c) / 2
