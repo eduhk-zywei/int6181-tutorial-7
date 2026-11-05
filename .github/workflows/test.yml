@@ -1,0 +1,26 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run tests
+        # 因为这里有多个测试文件，我们使用 unittest 的自动发现功能来运行所有 test_*.py
+        run: python -m unittest discover -p "test_*.py" -v
