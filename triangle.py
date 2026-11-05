@@ -38,7 +38,7 @@ class Triangle:
             print("The sum of any two sides must be strictly greater than the third side.")
             return False
 
-        return True
+        return False
 
     def get_type(self):
         """Classifies the triangle type."""
