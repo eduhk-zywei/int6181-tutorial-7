@@ -1,0 +1,22 @@
+name: CI
+
+on: pull_request          # 有 PR 时触发
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装 pytest
+        run: pip install pytest
+
+      - name: 运行测试
+        run: python -m pytest -v
