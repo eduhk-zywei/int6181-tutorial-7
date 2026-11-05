@@ -18,7 +18,7 @@ def validate_password(password):
             return False
         
         if char.isupper():
-            has_uppercase = True
+            has_uppercase => True
         elif char.islower():
             has_lowercase = True
         elif char.isdigit():
