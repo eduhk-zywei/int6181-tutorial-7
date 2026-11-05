@@ -27,7 +27,7 @@ class ParkingFeeCalculator:
         total = full_days * self.DAILY_MAX + self._fee_for_period(remainder)
         return round(total, 2)
 
-    def _fee_for_period(self, hours):
+    def _fee_for_period(self, hours):#阶段性的计算价格
         """Calculates fee for a single period up to 24 hours."""
         if hours <= 1:
             return 0.0
