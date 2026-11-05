@@ -29,6 +29,8 @@ class ParkingFeeCalculator:
 
     def _fee_for_period(self, hours):
         """Calculates fee for a single period up to 24 hours."""
+        if hours>0:
+            return 1.0
         if hours <= 1:
             return 0.0
 

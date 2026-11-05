@@ -9,7 +9,8 @@ class TriangleType(Enum):
 
 class Triangle:
     def __init__(self, a, b, c):
-        self.a = a
+        #self.a = a
+        self.a=b
         self.b = b
         self.c = c
 
