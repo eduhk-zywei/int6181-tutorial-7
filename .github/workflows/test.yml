@@ -1,0 +1,14 @@
+name: Run Python Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # 下載專案程式碼[cite: 1]
+      - uses: actions/setup-python@v4  # 安裝 Python 環境[cite: 1]
+        with:
+          python-version: '3.x'
+      - name: Run test script
+        run: python test_parking_fee.py  # 執行測試[cite: 2]
