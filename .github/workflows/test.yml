@@ -1,20 +1,20 @@
-name: Run Python Tests          # 自動化工作流程的名稱[cite: 1]
+name: Run Python Tests
 
-on:                             # 觸發條件 (Trigger conditions)[cite: 1]
-  pull_request:                 # 當發起 Pull Request 時觸發[cite: 1]
+on:
+  pull_request:
     branches: [ "main" ]
 
 jobs:
   test:
-    runs-on: ubuntu-latest      # 執行環境 (Environment)[cite: 1]
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code      # 步驟1：拉取儲存庫程式碼[cite: 1]
-        uses: actions/checkout@v4[cite: 1]
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Python      # 步驟2：安裝 Python 執行環境[cite: 1]
-        uses: actions/setup-python@v4[cite: 1]
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # 指定 Python 版本[cite: 1]
+          python-version: '3.x'
 
-      - name: Run tests          # 步驟3：執行測試腳本 (Workflow)[cite: 1]
-        run: python test_parking_fee.py # 執行你的測試檔案
+      - name: Run tests
+        run: python test_parking_fee.py
