@@ -23,7 +23,7 @@ class ParkingFeeCalculator:
             return None
 
         full_days = int(hours // 24)
-        remainder = hours - full_days * 24
+        remainder = hours + full_days * 24
         total = full_days * self.DAILY_MAX + self._fee_for_period(remainder)
         return round(total, 2)
 
